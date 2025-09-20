@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pytoberfest 2025 - Python Togo Community</title>
+    <meta name="description" content="Join Pytoberfest 2025 - A Python-focused Hacktoberfest for the Togo developer community. Contribute to open source, learn, and grow together.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'python-blue': '#3776ab',
+                        'python-yellow': '#ffd43b',
+                        'forest-green': '#2d5a27',
+                        'sage-green': '#87a96b',
+                        'cream': '#f8f6f0',
+                        'charcoal': '#2c3e50'
+                    },
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+
+</head>
+<body class="bg-cream text-charcoal font-body">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-sm border-b border-sage-green/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <a href="/" class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-gradient-to-br from-python-blue to-forest-green rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">P</span>
+                        </div>
+                        <span class="font-display font-bold text-xl text-charcoal">Pytoberfest</span>
+                    </a>
+                    
+                    <div class="hidden md:flex space-x-6">
+                        <a href="/" class="text-charcoal hover:text-python-blue transition-colors font-medium">Home</a>
+                        <a href="/challenges" class="text-charcoal hover:text-python-blue transition-colors font-medium">Challenges</a>
+                        <a href="/leaderboard" class="text-charcoal hover:text-python-blue transition-colors font-medium">Leaderboard</a>
+                        <a href="/about" class="text-charcoal hover:text-python-blue transition-colors font-medium">About</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-python-blue text-white px-4 py-2 rounded-lg font-medium hover:bg-python-blue/90 transition-colors">
+                        Join Now
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="/" class="text-charcoal hover:text-python-blue transition-colors font-medium py-2">Home</a>
+                    <a href="/challenges" class="text-charcoal hover:text-python-blue transition-colors font-medium py-2">Challenges</a>
+                    <a href="/leaderboard" class="text-charcoal hover:text-python-blue transition-colors font-medium py-2">Leaderboard</a>
+                    <a href="/about" class="text-charcoal hover:text-python-blue transition-colors font-medium py-2">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-python-blue via-forest-green to-sage-green text-white py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="mb-8">
+            <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <span class="text-python-yellow font-medium">🐍 October 1-31, 2025</span>
+            </div>
+            <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl mb-6 text-balance">
+                Welcome to<br>
+                <span class="text-python-yellow">Pytoberfest 2025</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto text-pretty">
+                Join the Python Togo community in celebrating open source! 
+                Contribute to Python projects, learn from daily challenges, and grow as a developer.
+            </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <button class="bg-python-yellow text-charcoal px-8 py-4 rounded-lg font-semibold text-lg hover:bg-python-yellow/90 transition-colors">
+                Start Contributing
+            </button>
+            <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors">
+                View Challenges
+            </button>
+        </div>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-bold text-python-yellow mb-2">50</div>
+                <div class="text-white/80">Participants</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-bold text-python-yellow mb-2">112</div>
+                <div class="text-white/80">Pull Requests</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-bold text-python-yellow mb-2">95</div>
+                <div class="text-white/80">Projects</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-bold text-python-yellow mb-2">6</div>
+                <div class="text-white/80">Countries</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-charcoal mb-4">How Pytoberfest Works</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Four simple steps to start your open source journey with the Python community
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-python-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-white font-bold text-2xl">1</span>
+                </div>
+                <h3 class="font-semibold text-xl mb-4">Sign Up</h3>
+                <p class="text-gray-600">Register with your GitHub account on hacktoberfest.com and join the Python Togo community</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="w-16 h-16 bg-forest-green rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-white font-bold text-2xl">2</span>
+                </div>
+                <h3 class="font-semibold text-xl mb-4">Get Daily Challenges</h3>
+                <p class="text-gray-600">Receive curated Python project issues and learning content every day</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="w-16 h-16 bg-sage-green rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-white font-bold text-2xl">3</span>
+                </div>
+                <h3 class="font-semibold text-xl mb-4">Contribute</h3>
+                <p class="text-gray-600">Submit pull requests to Python projects and earn points for your contributions</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="w-16 h-16 bg-python-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-charcoal font-bold text-2xl">4</span>
+                </div>
+                <h3 class="font-semibold text-xl mb-4">Celebrate</h3>
+                <p class="text-gray-600">Track your progress, climb the leaderboard, and celebrate with the community</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Challenges -->
+<!-- <section class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-charcoal mb-4">Featured Challenges</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Start with these handpicked challenges perfect for Python developers of all levels
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for challenge in challenges %}
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+                        {% if challenge.difficulty == 'Beginner' %}bg-green-100 text-green-800
+                        {% elif challenge.difficulty == 'Intermediate' %}bg-yellow-100 text-yellow-800
+                        {% else %}bg-red-100 text-red-800{% endif %}">
+                        {{ challenge.difficulty }}
+                    </span>
+                    <span class="text-python-blue font-semibold">{{ challenge.points }} pts</span>
+                </div>
+                
+                <h3 class="font-semibold text-xl mb-3 text-charcoal">{{ challenge.title }}</h3>
+                <p class="text-gray-600 mb-4">{{ challenge.description }}</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {% for tag in challenge.tags %}
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 text-sm rounded">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-500">{{ challenge.repository }}</span>
+                    <button class="bg-python-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-python-blue/90 transition-colors">
+                        View Challenge
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="/challenges" class="bg-forest-green text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-forest-green/90 transition-colors">
+                View All Challenges
+            </a>
+        </div>
+    </div>
+</section> -->
+
+<!-- Community Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-display font-bold text-3xl md:text-4xl text-charcoal mb-4">Join Our Community</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Connect with fellow Python developers from Togo and across Africa
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center p-8 rounded-xl bg-gradient-to-br from-python-blue/10 to-forest-green/10">
+                <div class="w-16 h-16 bg-python-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-xl mb-4">GitHub</h3>
+                <p class="text-gray-600 mb-6">Collaborate on projects and track your contributions</p>
+                <button class="bg-python-blue text-white px-6 py-2 rounded-lg font-medium hover:bg-python-blue/90 transition-colors">
+                    Join on GitHub
+                </button>
+            </div>
+            
+            <div class="text-center p-8 rounded-xl bg-gradient-to-br from-forest-green/10 to-sage-green/10">
+                <div class="w-16 h-16 bg-forest-green rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z"/>
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-xl mb-4">Discord</h3>
+                <p class="text-gray-600 mb-6">Chat with mentors and get real-time help</p>
+                <button class="bg-forest-green text-white px-6 py-2 rounded-lg font-medium hover:bg-forest-green/90 transition-colors">
+                    Join Discord
+                </button>
+            </div>
+            
+            <div class="text-center p-8 rounded-xl bg-gradient-to-br from-sage-green/10 to-python-yellow/10">
+                <div class="w-16 h-16 bg-sage-green rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-xl mb-4">YouTube</h3>
+                <p class="text-gray-600 mb-6">Stay updated with announcements and Highlights</p>
+                <button class="bg-sage-green text-white px-6 py-2 rounded-lg font-medium hover:bg-sage-green/90 transition-colors">
+                    Join YouTube
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-python-blue to-forest-green rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">P</span>
+                        </div>
+                        <span class="font-display font-bold text-xl">Pytoberfest 2025</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        A Python-focused celebration of open source for the Togo developer community. 
+                        Learn, contribute, and grow together.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-python-yellow transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-python-yellow transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/challenges" class="text-gray-300 hover:text-python-yellow transition-colors">Challenges</a></li>
+                        <li><a href="/leaderboard" class="text-gray-300 hover:text-python-yellow transition-colors">Leaderboard</a></li>
+                        <li><a href="/about" class="text-gray-300 hover:text-python-yellow transition-colors">About</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Community</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-python-yellow transition-colors">Python Togo</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-python-yellow transition-colors">Discord</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-python-yellow transition-colors">Youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 Pytoberfest. Made with ❤️ by Python Togo Community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', path='/js/main.js') }}"></script>
+
+</body>
+</html>
